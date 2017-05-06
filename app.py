@@ -32,31 +32,26 @@ def makeWebhookResult(req):
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    #zone = parameters.get("shipping-zone")
-    
-    #months = parameters.get("amount").get("amount")
-    months = 12
-    #princ_amt = parameters.get("duration").get("amount")
-    princ_amt = 2000
+    #zone = parameters.get("shipping-zone")    
+    months = parameters.get("amount").get("amount")   
+    princ_amt = parameters.get("duration").get("amount")    
     interest_rate = 0.13
     
-    emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))
-    emi1=months+princ_amt+interest_rate
-    #print(emi)
-    
-    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))    
+    #print(emi)    
+    #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-    speech = "The cost of shipping to"+str(emi)
-    #speech_response = "We will assist you with the financial assistance of"+princ_amt+"Your monthly EMI will be approximately"+emi+"Do you have any existing vehicle loan in your name?"
+    #speech = "The cost of shipping to"+str(emi)
+    speech_response = "We will assist you with the financial assistance of "+str(princ_amt)+"Your monthly EMI will be approximately "+str(emi)+"!!!!!!!"+"Do you have any existing vehicle loan in your name?"
     
     print("Response:")
     print(speech)
 
     return {
-        #"speech": speech_response,
-        #"displayText": speech_response,
-        "speech": speech,
-        "displayText": speech,
+        "speech": speech_response,
+        "displayText": speech_response,
+        #"speech": speech,
+        #"displayText": speech,
         #"data": {},
         # "contextOut": [],
         "source": "apiai-onlinestore-shipping"
