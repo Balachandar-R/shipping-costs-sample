@@ -33,15 +33,15 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")    
-    month_s = req.get("result").get("parameters").get("amount").get("amount")
-    #princ_amt = parameters.get("duration").get("amount")
+    month_s = req.get("result").get("parameters").get("duration").get("amount")
+    princ_amt = req.get("result").get("parameters").get("amount").get("amount")
     #months=12
-    princ_amt=2000
+    #princ_amt=2000
     interest_rate = 0.13
     
     
         
-    #emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))    
+    emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))    
     #print(emi)    
     #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
