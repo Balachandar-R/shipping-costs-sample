@@ -40,13 +40,13 @@ def makeWebhookResult(req):
     princ_amt = 2000
     interest_rate = 0.13
     
-    #emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))
+    emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))
     emi1=months+princ_amt+interest_rate
     #print(emi)
     
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-    speech = "The cost of shipping to"+emi1
+    speech = "The cost of shipping to"
     #speech_response = "We will assist you with the financial assistance of"+princ_amt+"Your monthly EMI will be approximately"+emi+"Do you have any existing vehicle loan in your name?"
     
     print("Response:")
