@@ -28,15 +28,15 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "shipping.cost":
+    if req.get("result").get("action") != "DefaultWelcomeIntent.DefaultWelcomeIntent-custom.vehiclefinance-custom":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    zone = parameters.get("shipping-zone")
-    #months = parameters.get("")
-    months = 12
-    #princ_amt = parameters.get("")
-    princ_amt = 20000
+    #zone = parameters.get("shipping-zone")
+    months = parameters.get("amount")
+    #months = 12
+    princ_amt = parameters.get("duration")
+    #princ_amt = 20000
     interest_rate = 0.13
     
     emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))
