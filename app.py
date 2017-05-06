@@ -33,17 +33,28 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     zone = parameters.get("shipping-zone")
-
+    #months = parameters.get("")
+    months = 12
+    #princ_amt = parameters.get("")
+    princ_amt = 20000
+    interest_rate = 0.13
+    
+    emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))
+    print(emi)
+    
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
     speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-
+    speech_response = "We will assist you with the financial assistance of"+princ_amt+"Your monthly EMI will be approximately"+emi+"Do you have any existing vehicle loan in your name?"
+    
     print("Response:")
     print(speech)
 
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": speech_response,
+        "displayText": speech_response,
+        #"speech": speech,
+        #"displayText": speech,
         #"data": {},
         # "contextOut": [],
         "source": "apiai-onlinestore-shipping"
@@ -55,4 +66,4 @@ if __name__ == '__main__':
 
     print "Starting app on port %d" % port
 
-    app.run(debug=True, port=port, host='0.0.0.0')
+    app.run(debug=True, port=port, host='127.0.0.1')
