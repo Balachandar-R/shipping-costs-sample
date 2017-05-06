@@ -46,7 +46,7 @@ def makeWebhookResult(req):
     #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
     #speech = "The cost of shipping to"+str(emi)
-    speech_response = "We will assist you with the financial assistance of "+str(months)+"Your monthly EMI will be approximately "+str(princ_amt)+"!!!!!!!"+"Do you have any existing vehicle loan in your name?"
+    speech_response = "We will assist you with the financial assistance of "+str(months)+"Your monthly EMI will be approximately "+str(princ_amt)
     
     print("Response:")
     print(speech)
