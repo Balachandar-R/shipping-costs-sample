@@ -33,9 +33,10 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
-    months = parameters.get("amount.amount")
+    
+    months = parameters.get("amount").get("amount")
     #months = 12
-    princ_amt = parameters.get("duration.amount")
+    princ_amt = parameters.get("duration").get("amount")
     #princ_amt = 20000
     interest_rate = 0.13
     
