@@ -35,25 +35,15 @@ def makeWebhookResult(req):
     #zone = parameters.get("shipping-zone")    
     months = req.get("result").get("parameters").get("duration").get("amount")
     princ_amt = req.get("result").get("parameters").get("amount").get("amount")
-    #months=12
-    #princ_amt=2000
     interest_rate = 0.13
-    
-    
-        
     emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))    
-    #print(emi)    
-    #cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
 
-    #speech_response = "The cost of shipping to"+str(months)
-    speech = "We will assist you with the financial assistance of "+str(princ_amt)+"Your monthly EMI will be approximately "+str(emi)
+    speech = "We will assist you with the financial assistance of "+str(princ_amt)+" INR\n"+"Your monthly EMI will be approximately"+str(emi)+" INR\n"+"Do you have any existing loan against you?"
     
     print("Response:")
     print(speech)
 
     return {
-        #"speech": speech_response,
-        #"displayText": speech_response,
         "speech": speech,
         "displayText": speech,
         #"data": {},
