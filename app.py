@@ -38,7 +38,7 @@ def makeWebhookResult(req):
     interest_rate = 0.13
     emi = (princ_amt*interest_rate*(1+interest_rate)**months)/((1+interest_rate)**(months-1))    
 
-    speech = "We will assist you with the financial assistance of "+str(princ_amt)+" INR\n"+"Your monthly EMI will be approximately"+str(emi)+" INR\n"+"Do you have any existing loan against you?"
+    speech = "We will help you with the financial assistance of "+str(princ_amt)+" INR.\n\n"+"Your monthly EMI will be approximately "+str(emi)+" INR.\n\n"+"Do you have any existing loan against you?"
     
     print("Response:")
     print(speech)
